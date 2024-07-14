@@ -1,0 +1,1437 @@
+ZombieReforzado:
+  Type: ZOMBIE
+  Display: '&aZombie Reforzado'
+  Health: 40
+  Damage: 
+  Skills:
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=1.3} @self ~onDamaged
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 0.6
+  - command{c="clv addExp 7 <trigger.name>"} @trigger ~onDeath
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - CHAINMAIL_CHESTPLATE CHEST
+  - IRON_HELMET HEAD
+  - CHAINMAIL_LEGGINGS LEGS
+  - CHAINMAIL_BOOTS FEET
+  - IRON_SWORD HAND
+  Drops:
+  - IRON_SWORD 1 0.08
+  Options:
+    Silent: false
+    PreventTransformation: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 25
+    PreventOtherDrops: false
+EsqueletoReforzado:
+  Type: SKELETON
+  Display: '&eEsqueleto Reforzado'
+  Health: 20
+  Damage: 6
+  Skills:
+  - command{c="clv addExp 5 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 0.4
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=1.3} @self ~onDamaged
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - CHAINMAIL_CHESTPLATE CHEST
+  - IRON_HELMET HEAD
+  - CHAINMAIL_LEGGINGS LEGS
+  - CHAINMAIL_BOOTS FEET
+  - IRON_AXE HAND
+  Drops:
+  - IRON_AXE 1 0.08
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 25
+    PreventOtherDrops: false
+ReyEsqueleto:
+  Type: SKELETON
+  Display: '&e&lRey Esqueleto'
+  Health: 1000
+  Damage: 10
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.2
+  - ENTITY_ATTACK 0.9
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=TritonSkill} ~onTimer:40
+  - skill{s=Aura} ~onTimer:10
+  - skill{s=SpawneoReyEs} ~onSpawn
+  - skill{s=SkillsReyEsq} ~onTimer:360
+  - command{c="warning &c<trigger.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 150"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 1000 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - ReyEsqueletoC HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - NETHERITE_BOOTS FEET
+  - IRON_SWORD HAND
+  Drops:
+  - IRON_SWORD 1 0.07
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&e&lRey Esqueleto'
+    Range: 50
+    Color: RED
+    Style: Solid
+Bestia:
+  Type: HUSK
+  Display: '&6Bestia Salvaje'
+  Health: 10
+  Damage: 8
+  Skills:
+  - command{c="clv addExp 8 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 0.4
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=1.3} @self ~onDamaged
+  - skill{s=Sangrado} ~onAttack 0.4
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - LEATHER_CHESTPLATE CHEST
+  - BestiaC HEAD
+  - LEATHER_LEGGINGS LEGS
+  - LEATHER_BOOTS FEET
+  - AIR HAND
+  Drops:
+  - LEATHER 3 0.08
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.35
+    MaxCombatDistance: 25
+    PreventOtherDrops: false
+SlimePiedra:
+  Type: ZOMBIE
+  Display: '&aSlime Rocoso'
+  Health: 60
+  Damage: 5
+  Skills:
+  - command{c="clv addExp 12 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 1
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=1.3} @self ~onDamaged
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - Stone1 CHEST
+  - StoneC HEAD
+  - Stone2 LEGS
+  - Stone3 FEET
+  - STONE_SWORD HAND
+  Drops:
+  - SLIME_BALL 1 0.08
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 25
+    PreventOtherDrops: false
+Ogro:
+  Type: ZOMBIE
+  Display: '&a&lOgro Guardián'
+  Health: 1800
+  Damage: 18
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.2
+  - ENTITY_ATTACK 0.8
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoOgro} ~onSpawn
+  - skill{s=TritonSkill} ~onTimer:40
+  - skill{s=Aura} ~onTimer:2
+  - skill{s=SkillsOgro} ~onTimer:380
+  - command{c="warning &c<trigger.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 350"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 1800 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - effect:sound{s=entity.ravager.attack;volume=1.0;pitch=1.3} @self ~onAttack
+  - effect:sound{s=entity.villager.hurt;volume=1.0;pitch=0.3} @self ~onDamaged
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - OgroC HEAD
+  - Ogro1 CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - NETHERITE_BOOTS FEET
+  - NETHERITE_AXE HAND
+  Drops:
+  - NETHERITE_AXE 1 0.07
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&a&lOgro Guardián'
+    Range: 50
+    Color: RED
+    Style: Solid
+Caballu:
+  Type: VILLAGER
+  Display: '&aGustavo Cerati'
+  Health: 20
+  Damage: 0
+  Skills:
+  - skill{skill=UltideMundo} @ self ~onTimer:40
+  Equipment:
+  
+  Options:
+    AlwaysShowName: true
+    Glowing: true
+    KnockbackResistance: 1
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    Equipment: 
+  BossBar:
+    Enabled: true
+    Title: 'De aquel amor, de musica ligera'
+    Range: 50
+    Color: BLUE
+    Style: Solid
+Triton:
+  Type: DROWNED
+  Display: '&9Tritón Asesino&r'
+  Health: 42
+  Damage: 5
+  Skills:
+  - command{c="clv addExp 13 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  - skill{s=TritonSkills} @self ~onTimer:80
+  Equipment:
+  - tritonh HEAD
+  - air OFFHAND
+  - TRIDENT HAND
+  - tritonc CHEST
+  - tritonk LEGS
+  - tritonb FEET
+  Drops:
+  - TRIDENT 1 0.02
+  - SEA_LANTERN 1 0.1
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.3
+    MaxCombatDistance: 25
+    PreventOtherDrops: false
+Raiz:
+  Type: HUSK
+  Display: '&aRaíz Arcana'
+  Health: 90
+  Damage: 10
+  Skills:
+  - effect:sound{s=entity.fox.spit;volume=1.0;pitch=1.3} @self ~onAttack
+  - skill{s=RaizSkill} @target ~onAttack
+  - command{c="clv addExp 17 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 2"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - raizp CHEST
+  - raizh HEAD
+  - raizl LEGS
+  - raizb FEET
+  - WOODEN_SWORD HAND
+  Drops:
+  - OAK_LOG 1-10 0.3
+  - OAK_LEAVES 1-10 0.3
+  - WOODEN_SWORD 1 0.07
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.23
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+AveFlamigera:
+  Type: ALLAY
+  Disguise: Fuego1
+  Display: '&cAve Flamígera'
+  Health: 8
+  Damage: 20
+  Skills:
+  - effect:particles{particle=FLAME;amount=2;hS=0.5;vS=0.7} @self ~onTimer:1
+  - effect:sound{s=entity.ender_dragon.flap;volume=1.0;pitch=1.8} @self ~onTimer:20
+  - skill{s=AveFuego} ~onTimer:120
+  - command{c="clv addExp 11 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  - potion{type=INVISIBILITY;lvl=2;duration=999999;p=false} @self ~onSpawn
+  Equipment:
+  - air CHEST
+  - air HEAD
+  - air LEGS
+  - air FEET
+  - air HAND
+  Drops:
+  - OAK_LOG 1-10 0.3
+  - OAK_LEAVES 1-10 0.3
+  - WOODEN_SWORD 1 0.07
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.5
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+Reptil:
+  Type: WITHER_SKELETON
+  Display: '&2&lReptil Cazador'
+  Health: 1800
+  Damage: 15
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.2
+  - ENTITY_ATTACK 0.85
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoReptil} ~onSpawn
+  - skill{s=TritonSkill} ~onTimer:40
+  - skill{s=Aura} ~onTimer:2
+  - skill{s=SangradoR} ~onAttack 0.3
+  - skill{s=SkillsReptil} ~onTimer:720
+  - command{c="warning &c<trigger.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 500"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 6000 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - effect:sound{s=entity.ravager.attack;volume=1.0;pitch=2} @self ~onAttack
+  - effect:sound{s=entity.villager.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - ReptilH HEAD
+  - ReptilC CHEST
+  - ReptilL LEGS
+  - ReptilB FEET
+  - dagacazador HAND
+  - dagacazador OFFHAND
+  Drops:
+  - dagacazador 1 0.1
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&2&lReptil Cazador'
+    Range: 50
+    Color: RED
+    Style: Solid
+ReyArruinado:
+  Type: VINDICATOR
+  Display: '<#70dbc4>&lRey Arruinado'
+  Disguise: ReyArruinado
+  Health: 2500
+  Damage: 65
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.1
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoViego} ~onSpawn
+  - shieldbreak{duration=200} @target ~onAttack 0.5
+  - skill{s=Aura} ~onTimer:2
+  - skill{s=SkillsViego} ~onTimer:2840
+  - effect:particles{p=reddust;color=#3d6159;amount=10;hS=0.6;vS=1} @self ~onTimer:1
+  - effect:particles{p=reddust;color=#9cdbcd;amount=4;hS=0.6;vS=1} @self ~onTimer:1
+  - effect:particles{p=reddust;color=#48a38f;amount=10;hS=0.6;vS=1} @self ~onTimer:1
+  - command{c="warning &c<target.name> &fha asesinado a <&nm>70dbc4&lRey Arruinado"} @NearestPlayer{r=40} ~onDeath
+  - command{c="ntokens give <target.name> 1500"} @PlayersInRadius{r=10} ~onDeath
+  - command{c="clv addExp 10000 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - effect:sound{s=block.chain.break;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=block.bell.use;volume=1.0;pitch=2} @self ~onDamaged
+  - effect:sound{s=entity.player.death;volume=1.0;pitch=0.7} @self ~onDamaged
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - reyarruinado HAND
+  - air OFFHAND
+  Drops:
+  - reyarruinado 1 0.05
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '<#70dbc4>&lRey Arruinado'
+    Range: 50
+    Color: RED
+    Style: Solid
+AlmaNiebla:
+  Type: VINDICATOR
+  Display: '<#70dbc4>&lAlma de la Niebla'
+  Health: 100
+  Damage: 0
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.5
+  - ENTITY_ATTACK 0.9
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:particles{p=reddust;color=#3d6159;amount=10;hS=0.2;vS=1} @self ~onTimer:1
+  - effect:particles{p=reddust;color=#9cdbcd;amount=4;hS=0.2;vS=1} @self ~onTimer:1
+  - effect:particles{p=reddust;color=#48a38f;amount=10;hS=0.2;vS=1} @self ~onTimer:1
+  - effect:particleline{p=reddust;color=#252e2c;syo=0.5;tyo=0.5;amount=1;fromOrigin=true} @Parent ~onTimer:1
+  - effect:sound{s=block.bell.use;volume=1.0;pitch=2} @self ~onDamaged
+  - lightning{d=250} @Parent ~onDeath
+  - effect:sound{s=entity.ender_eye.death;volume=1.0;pitch=0} @self ~onSpawn
+  - effect:sound{s=entity.allay.hurt;volume=0.6;pitch=0.0} @self ~onDamaged
+  - effect:sound{s=entity.zombie.attack_iron_door;volume=0.8;pitch=0.0} @self ~onDeath
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - air HAND
+  - air OFFHAND
+  Options:
+    Silent: true
+    ApplyInvisibility: true
+    NoAI: true
+    Despawn: true
+    AlwaysShowName: false
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.0
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+CreeperReal:
+  Disguise: CreeperReal
+  Type: ZOMBIE
+  Display: '&4Creeper Real'
+  Health: 30
+  Damage: 5
+  Skills:
+  - effect:sound{s=entity.creeper.primed;volume=1.0;pitch=1.3} @self ~onDeath
+  - effect:sound{s=entity.creeper.primed;volume=1.0;pitch=1.3} @self ~onAttack
+  - effect:sound{s=entity.creeper.hurt;volume=1.0;pitch=0.5} @self ~onDamaged
+  - explosion{yield=2;f=true} ~onDeath
+  - command{c="clv addExp 12 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - IRON_CHESTPLATE CHEST
+  - CreeperReal HEAD
+  - CreeperRealP LEGS
+  - IRON_BOOTS FEET
+  - IRON_SWORD HAND
+  - escudocreepr OFFHAND
+  Drops:
+  - GUNPOWDER 2-5 0.4
+  - TNT 1 0.05
+  - escudocreepr 1 0.01
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.23
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+BebeDragona:
+  Disguise: BebeDragona
+  Type: ZOMBIE
+  Display: '&5Bebé Dragona'
+  Health: 50
+  Damage: 20
+  Skills:
+  - skill{s=Dragon} @PlayersInRadius{r=60} ~onTimer:300
+  - effect:sound{s=entity.ender_dragon.hurt;volume=1.0;pitch=1.5} @self ~onDamaged
+  - effect:sound{s=entity.ender_dragon.growl;volume=1.0;pitch=2} @self ~onAttack
+  - effect:particles{particle=dragon_breath;amount=2;hS=1;vS=1} @self ~onTimer:1
+  - effect:sound{s=entity.ender_dragon.flap;volume=1.0;pitch=1.8} @self ~onTimer:20
+  - command{c="clv addExp 24 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 3"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - AIR CHEST
+  - AIR HEAD
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Drops:
+  - OBSIDIAN 2-5 0.4
+  - ENDER_EYE 1 0.1
+  - ENDER_PEARL 1-2 0.2
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.27
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+DemonioOcular:
+  Type: WITHER_SKELETON
+  Display: '&4Demonio Ocular'
+  Disguise: DemonioOcular
+  Health: 40
+  Damage: 8
+  Skills:
+  - skill{s=LaserFuego} ~onTimer:200 
+  - effect:sound{s=entity.ravager.attack;volume=1.0;pitch=2} @self ~onDamaged
+  - command{c="clv addExp 18 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 3"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  - cancelevent{sync=true} ~onShoot
+  Equipment:
+  - AIR CHEST
+  - AIR HEAD
+  - AIR LEGS
+  - AIR FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Drops:
+  - OBSIDIAN 2-5 0.4
+  - ENDER_EYE 1 0.1
+  - ENDER_PEARL 1-2 0.2
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.27
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+BestiaDelHorror:
+  Type: HUSK
+  Display: '&8Bestia del Horror'
+  Health: 10
+  Damage: 5
+  Skills:
+  - skill{s=Horrorizar} ~onAttack
+  - potion{type=INVISIBILITY;p=false;duration=99999;level=3} @self ~onSpawn
+  - potionclear{} @self ~onAttack
+  - effect:sound{s=entity.ravager.attack;volume=1.0;pitch=2} @self ~onDamaged
+  - command{c="clv addExp 17 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 2"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - AIR CHEST
+  - AIR HEAD
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Drops:
+  - HAY_BLOCK 1-3 0.2
+  - ARROW 5-10 0.15
+  - GOLDEN_APPLE 1-2 0.1
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.35
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+SlimeDeMiel:
+  DamageModifiers:
+  - FALL_DAMAGE 0.0
+  Type: HUSK
+  Display: '&6Slime de Miel'
+  Health: 40
+  Damage: 5
+  Skills:
+  - skill{s=Miel} @target ~onTimer:200
+  - skill{s=MielSalto} ~onTimer:40
+  - effect:sound{s=block.slime_block.hit;volume=1.0;pitch=2} @self ~onDamaged
+  - command{c="clv addExp 15 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 2"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - SlimeMielH HEAD
+  - SlimeMielC CHEST
+  - SlimeMielL LEGS
+  - SlimeMielB FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Drops:
+  - HONEYCOMB 1-3 0.2
+  - HONEY_BOTTLE 1-2 0.15
+  - HONEY_BLOCK 1-2 0.1
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.35
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+DevoradorCarnivoro:
+  Type: HUSK
+  Display: '&cDevorador Carnívoro'
+  Health: 35
+  Damage: 5
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:sound{s=entity.hoglin.attack;volume=1.0;pitch=2} @self ~onAttack
+  - effect:sound{s=entity.zoglin.angry.hit;volume=1.0;pitch=2} @self ~onDamaged
+  - effect:sound{s=entity.ghast.death;volume=1.0;pitch=0} @self ~onEnterCombat
+  - command{c="clv addExp 21 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 3"} @trigger ~onDeath 1
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - DevoradorH HEAD
+  - DevoradorC CHEST
+  - DevoradorL LEGS
+  - DevoradorB FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Drops:
+  - BEEF 13-30 0.3
+  - RABBIT 7-12 0.15
+  - MUTTON 4-10 0.1
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.5
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+ProtectorDeAlmas:
+  Disguise: ProtectorDeAlmas
+  Type: HUSK
+  Display: '&e&lProtector de Almas'
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.2
+  - ENTITY_ATTACK 0.8
+  - FALL_DAMAGE 0.0
+  Health: 500
+  Damage: 10
+  Skills:
+  - skill{s=RobaAlmas} ~onAttack 0.5
+  - effect:sound{s=item.shield.break;volume=1.0;pitch=0} @self ~onDamaged
+  - effect:sound{s=item.trident.return;volume=1.0;pitch=1.4} @self ~onAttack
+  - effect:particles{particle=END_ROD;amount=2;hS=1.3;vS=1} @self ~onTimer:1
+  - command{c="clv addExp 50 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 100"} @trigger ~onDeath 1
+  Equipment:
+  - AIR CHEST
+  - AIR HEAD
+  - AIR LEGS
+  - AIR FEET
+  - AIR HAND
+  - AIR OFFHAND
+  Drops:
+  - GOLD_INGOT 13-50 0.4
+  - ENCHANTED_GOLDEN_APPLE 1-10 0.1
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.3
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+JineteOscuro:
+  Type: SKELETON
+  Display: '&7&lJinete Oscuro'
+  Health: 2000
+  Damage: 74
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.1
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoJinete} ~onSpawn
+  - shieldbreak{duration=200} @target ~onAttack 0.5
+  - skill{s=Jinetes} ~onSpawn
+  - effect:particles{p=falling_dust;color=#666666;amount=15;hS=1;vS=1} @self ~onTimer:1
+  - command{c="warning &c<trigger.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - command{c="clv addExp 12500 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - effect:sound{s=entity.skeleton_horse.hurt;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  Equipment:
+  - JineteC HEAD
+  - chainmail_chestplate CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - NETHERITE_BOOTS FEET
+  - NETHERITE_SWORD HAND
+  - EscudoNegro OFFHAND
+  Drops:
+  - STONE 1 1
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&7&lJinete Oscuro'
+    Range: 50
+    Color: RED
+    Style: Solid
+CaballoMuerto:
+  Type: SKELETON_HORSE
+  Display: '&7&lCaballo No-Muerto'
+  Health: 100
+  Damage: 5
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.9
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:particles{p=falling_dust;color=#666666;amount=15;hS=1;vS=1} @self ~onTimer:1
+  - effect:sound{s=entity.skeleton_horse.hurt;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - air HAND
+  - air OFFHAND
+  Drops:
+  - BONE 1-30 1
+  - BONE_BLOCK 2-5 1
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+ZombieEspecial:
+  Type: ZOMBIE
+  Display: '&bZombie de Evento'
+  Health: 20
+  Damage: 1
+  Modules:
+    ThreatTable: true
+  Skills:
+  - command{c="clv addExp 5 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 1
+  Equipment:
+  - DIAMOND_HELMET HEAD
+  - DIAMOND_CHESTPLATE CHEST
+  - DIAMOND_LEGGINGS LEGS
+  - DIAMOND_BOOTS FEET
+  - DIAMOND_SWORD HAND
+  - AIR OFFHAND
+  Drops:
+  - DIAMOND 1-3 1
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+EsqueletoEspecial:
+  Type: SKELETON
+  Display: '&bEsqueleto de Evento'
+  Health: 20
+  Damage: 1
+  Modules:
+    ThreatTable: true
+  Skills:
+  - command{c="clv addExp 5 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 1
+  Equipment:
+  - DIAMOND_HELMET HEAD
+  - DIAMOND_CHESTPLATE CHEST
+  - DIAMOND_LEGGINGS LEGS
+  - DIAMOND_BOOTS FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Drops:
+  - DIAMOND 1-3 1
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+EsqueletoJefe:
+  Type: STRAY
+  Display: '&bJefe Esqueleto'
+  Health: 1000
+  Damage: 1
+  Modules:
+    ThreatTable: true
+  Skills:
+  - command{c="clv addExp 500 <trigger.name>"} @PlayersInRadius{r=40} ~onDeath
+  - command{c="ntokens give <trigger.name> 100"} @trigger ~onDeath 1
+  - command{c="give <trigger.name> diamond 30"} @PlayersInRadius{r=40} ~onDeath
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  - command{c="warning &c<trigger.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - effect:sound{s=ui.toast.challenge_complete;volume=1.0;pitch=1.6} @self ~onDeath
+  Equipment:
+  - DIAMOND_HELMET HEAD
+  - DIAMOND_CHESTPLATE CHEST
+  - DIAMOND_LEGGINGS LEGS
+  - DIAMOND_BOOTS FEET
+  - BOW HAND
+  - AIR OFFHAND
+  Drops:
+  - DIAMOND 10-32 1
+  Options:
+    Silent: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+RaulReyes:
+  Type: VINDICATOR
+  Display: '&4Raul &lRelles'
+  Disguise: RaulRelles
+  Health: 100
+  Damage: 2
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.1
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:particles{p=reddust;color=#9e0005;amount=10;hS=0.6;vS=1} @self ~onTimer:1
+  - effect:particles{p=reddust;color=#c4474b;amount=4;hS=0.6;vS=1} @self ~onTimer:1
+  - effect:particles{p=reddust;color=#e09b9d;amount=10;hS=0.6;vS=1} @self ~onTimer:1
+  - effect:sound{s=block.chain.break;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=block.bell.use;volume=1.0;pitch=2} @self ~onDamaged
+  - effect:sound{s=entity.player.death;volume=1.0;pitch=0.7} @self ~onDamaged
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - air HAND
+  - air OFFHAND
+  Drops:
+  - STONE 1 1
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&4Raul &lRelles'
+    Range: 50
+    Color: RED
+    Style: Solid
+JefePillager:
+  Type: PILLAGER
+  Display: '&4Jefe Pillager'
+  Health: 300
+  Damage: 8
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.8
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoPillager} ~onSpawn
+  - skill{s=Lluvia} ~onTimer:200
+  - ignite{ticks=100} @target ~onAttack
+  - command{c="warning &c<trigger.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 100"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 100 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  - potion{type=HERO_OF_THE_VILLAGE;lvl=2;duration=1800;p=false} @PlayersInRadius{r=5} ~onDeath
+  Equipment: {}
+  Drops:
+  - EMERALD 15-32 1
+  Options:
+    Silent: false
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&4Jefe Pillager'
+    Range: 50
+    Color: RED
+    Style: Solid
+BrujoCosmico:
+  Type: ZOMBIE
+  Display: '<#8253ad>&lBrujo Cósmico'
+  Disguise: BrujoCosmico
+  Health: 4000
+  Damage: 90
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.5
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoBrujo} ~onSpawn
+  - skill{s=SkillsBrujo} ~onTimer:1500
+  - skill{s=Aura} ~onTimer:2
+  - skill{s=CancelarBlaze;sync=true} ~onShoot
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  - shieldbreak{duration=200} @target ~onAttack 1
+  - effect:particleorbital{p=reddust;color=#a38cb8;points=16;t=100;r=1;i=1;oy=0.2} @self ~onTimer:100
+  - effect:particleorbital{p=reddust;color=#4d3463;points=16;t=100;r=1;reversed=true;oy=1.1;i=2} @self ~onTimer:100
+  - effect:particleorbital{p=reddust;color=#e0bdff;points=16;t=100;r=1;i=1;oy=2} @self ~onTimer:100
+  - command{c="warning &c<target.name> &fha asesinado a <&nm>8253ad&lBrujo Cósmico"} @NearestPlayer{r=40} ~onDeath
+  - command{c="ntokens give <target.name> 2000"} @PlayersInRadius{r=20} ~onDeath
+  - command{c="ee extractor default 3 <target.name>"} @PlayersInRadius{r=20} ~onDeath
+  - command{c="clv addExp 20000 <target.name>"} @PlayersInRadius{r=20} ~onDeath 
+  - effect:sound{s=block.chain.break;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=block.amethyst_block.break;volume=1.0;pitch=0} @self ~onDamaged
+  - effect:sound{s=entity.player.death;volume=1.0;pitch=0.7} @self ~onDamaged
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - paloloco HAND
+  - paloloco OFFHAND
+  Drops:
+  - DIAMOND 50-100 1
+  Options:
+    Silent: true
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.30
+    MaxCombatDistance: 25
+    KnockbackResistance: 1
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '<#8253ad>&lBrujo Cósmico'
+    Range: 50
+    Color: RED
+    Style: Solid
+AlmaBrujo:
+  Type: BLAZE
+  Display: '<#8253ad>&lBrujo Cósmico'
+  Health: 2000
+  Disguise: BrujoCosmico
+  Damage: 0
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.5
+  - ENTITY_ATTACK 0.9
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=MagiaNegra} ~onShoot 0.5
+  - effect:particleorbital{p=reddust;color=#a38cb8;points=16;t=100;r=1;i=1;oy=0.2} @self ~onTimer:100
+  - effect:particleorbital{p=reddust;color=#4d3463;points=16;t=100;r=1;reversed=true;oy=1.1;i=2} @self ~onTimer:100
+  - effect:particleorbital{p=reddust;color=#e0bdff;points=16;t=100;r=1;i=1;oy=2} @self ~onTimer:100
+  - effect:sound{s=block.chain.break;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=block.amethyst_block.break;volume=1.0;pitch=0} @self ~onDamaged
+  - effect:sound{s=entity.player.death;volume=1.0;pitch=0.7} @self ~onDamaged
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - air HAND
+  - air OFFHAND
+  Options:
+    Silent: true
+    NoAI: false
+    KnockbackResistance: 1
+    Despawn: true
+    Invincible: false
+    AlwaysShowName: false
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.0
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+Jinete:
+  Type: SKELETON
+  Display: '&6Jinete sin Cabeza'
+  Health: 100
+  Damage: 8
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.3
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:sound{s=entity.skeleton_horse.hurt;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  - mount{type=CaballoMuerto} ~onSpawn
+  - command{c="announce &8➤ &e<trigger.name> &fha asesinado a un <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 100"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 50 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - JineteSH HEAD
+  - NETHERITE_CHESTPLATE CHEST
+  - NETHERITE_LEGGINGS LEGS
+  - NETHERITE_BOOTS FEET
+  - IRON_SWORD HAND
+  - air OFFHAND
+  Drops:
+  - NETHERITE_INGOT 1 0.5
+  - PUMPKIN 1-3 1
+  - DIAMOND 1-5 1
+  - IRON_SWORD 1 0.01
+  Options:
+    Silent: false
+    Despawn: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.32
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+Frankenstein:
+  Type: ZOMBIE
+  Display: '&2Frankenstein'
+  Health: 200
+  Damage: 9
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.3
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:sound{s=entity.pillager.hurt;volume=1.0;pitch=0.65} @self ~onAttack
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  - effect:particles{p=falling_dust;color=#c9c9c9;amount=5;hS=1;vS=1} @self ~onTimer:1
+  - command{c="announce &8➤ &e<trigger.name> &fha asesinado a un <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 110"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 50 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - Frankenstein HEAD
+  - LEATHER_CHESTPLATE CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - LEATHER_BOOTS FEET
+  - air HAND
+  - air OFFHAND
+  Drops:
+  - NETHERITE_INGOT 1 0.5
+  - ARROW 40-50 1
+  - TOTEM_OF_UNDYING 1 0.3
+  - SPIDER_EYE 1-4 0.4
+  Options:
+    Silent: true
+    Despawn: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.2
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+Dracula:
+  Type: WITHER_SKELETON
+  Display: '&4Drácula'
+  Health: 100
+  Damage: 5
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.3
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:sound{s=entity.pillager.hurt;volume=1.0;pitch=0.8} @self ~onAttack
+  - effect:particles{p=falling_dust;color=#ad0000;amount=15;hS=1;vS=1} @self ~onTimer:1
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  - command{c="announce &8➤ &e<trigger.name> &fha asesinado a un <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 90"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 50 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - Dracula HEAD
+  - DraculaC CHEST
+  - DraculaL LEGS
+  - DraculaB FEET
+  - air HAND
+  - air OFFHAND
+  Drops:
+  - NETHERITE_INGOT 1 0.5
+  - RABBIT 1-10 1
+  - FrutoDeAlmas 1 0.3
+  - FERMENTED_SPIDER_EYE 1-4 0.4
+  Options:
+    Silent: true
+    Despawn: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+Payaso:
+  Type: HUSK
+  Display: '&ePayaso Malvado'
+  Health: 150
+  Damage: 6
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.1
+  - ENTITY_ATTACK 0.3
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - effect:sound{s=entity.pillager.hurt;volume=1.0;pitch=0.8} @self ~onAttack
+  - effect:particles{p=END_ROD;amount=5;hS=0.5;vS=0.5} @self ~onTimer:1
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=0.6} @self ~onDamaged
+  - command{c="announce &8➤ &e<trigger.name> &fha asesinado a un <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 90"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 50 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  Equipment:
+  - Payaso HEAD
+  - PayasoC CHEST
+  - PayasoL LEGS
+  - PayasoB FEET
+  - air HAND
+  - air OFFHAND
+  Drops:
+  - NETHERITE_INGOT 1 0.5
+  - DIAMOND 1-5 0.5
+  - EMERALD 1 0.3
+  - GHAST_TEAR 1-4 0.2
+  Options:
+    Silent: true
+    Despawn: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+SegadorObscuro:
+  Type: WITHER_SKELETON
+  Display: '&8Segador Obscuro'
+  Health: 40
+  Damage: 8
+  Skills:
+  - effect:particles{particle=SQUID_INK;amount=20;hS=0.5;vS=0.7} @self ~onAttack
+  - effect:sound{s=entity.phantom.hurt;volume=1.0;pitch=0} @self ~onDamaged
+  - command{c="clv addExp 21 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 3"} @trigger ~onDeath 1
+  - command{c="ntokens remove <trigger.name> 1"} @trigger ~onAttack 0.2
+  - skill{s=Despawneo} ~onTimer:1500
+  Equipment:
+  - SegadorH HEAD
+  - SegadorC CHEST
+  - SegadorL LEGS
+  - SegadorB FEET
+  - SegadorW HAND
+  - SegadorW OFFHAND
+  Drops:
+  - fruto 1 0.07
+  - BLACK_CANDLE 1 0.1
+  - BLACK_CONCRETE 1-2 0.2
+  Options:
+    Silent: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.27
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+RanaMutante:
+  Type: BABY_HUSK
+  Display: '&a&lRana Mutante'
+  Health: 1000
+  Damage: 10
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.2
+  - ENTITY_ATTACK 0.9
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoRana} ~onSpawn
+  - skill{s=SkillsRana} ~onTimer:600
+  - skill{s=Aura} ~onTimer:2
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  - shieldbreak{duration=200} @target ~onAttack 1
+  - effect:particleorbital{p=falling_water;points=16;t=100;r=1;i=1;oy=0.2} @self ~onTimer:100
+  - command{c="warning &c<target.name> &fha asesinado a &a&lRana Mutante"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 150"} @PlayersInRadius{r=20} ~onDeath
+  - command{c="clv addExp 1000 <target.name>"} @PlayersInRadius{r=20} ~onDeath 
+  - effect:sound{s=entity.frog.hurt;volume=1.0;pitch=0} @self ~onDamaged
+  Equipment:
+  - RanaH HEAD
+  - RanaC CHEST
+  - RanaL LEGS
+  - RanaB FEET
+  - air HAND
+  - air OFFHAND
+  Drops:
+  - OCHRE_FROGLIGHT 1 0.5
+  - VERDANT_FROGLIGHT 1 0.5
+  - PEARLESCENT_FROGLIGHT 1 0.5
+  Options:
+    Silent: true
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    KnockbackResistance: 0.5
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&a&lRana Mutante'
+    Range: 50
+    Color: RED
+    Style: Solid
+Anfibio:
+  Type: BABY_HUSK
+  Disguise: Tadpole
+  Display: '&aAnfibio'
+  Health: 2
+  Damage: 4
+  Skills:
+  - effect:particles{particle=falling_water;amount=5;hS=0.5;vS=0.15} @self ~onTimer:1
+  - command{c="clv addExp 5 <trigger.name>"} @trigger ~onDeath
+  - command{c="ntokens give <trigger.name> 1"} @trigger ~onDeath 0.5
+  - remove @self ~onAttack
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - air HAND
+  - air OFFHAND
+  Drops: {}
+  Options:
+    Silent: true
+    AlwaysShowName: false
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.4
+    MaxCombatDistance: 25
+    PreventOtherDrops: true
+Inhibidor:
+  Type: SKELETON
+  Disguise: Ender_Crystal
+  Display: '&6&lINHIBIDOR LEGENDARIO'
+  Health: 600
+  Damage: 0
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.0
+  - ENTITY_ATTACK 0.0
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=AuraIn} ~onTimer:20
+  - skill{s=AuraSon} ~onTimer:20
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  - effect:sound{s=block.beacon.activate;v=1;p=2} @PlayersInRadius{r=25} ~onSpawn
+  - effect:sound{s=block.beacon.deactivate;v=1;p=2} @PlayersInRadius{r=25} ~onDeath
+  - message{m="&fSe ha colocado un <mob.name> &r&fque estará activo &e10 minutos&f."} @PlayersInRadius{r=25} ~onSpawn
+  - message{m="&fEl <mob.name> &r&fha desaparecido."} @PlayersInRadius{r=25} ~onDeath
+  Equipment:
+  - air HEAD
+  - air CHEST
+  - air LEGS
+  - air FEET
+  - air HAND
+  - air OFFHAND
+  Drops: {}
+  Options:
+    Silent: true
+    Despawn: false
+    NoAI: true
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.0
+    MaxCombatDistance: 25
+    KnockbackResistance: 1
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&6&lINHIBIDOR LEGENDARIO'
+    Range: 50
+    Color: WHITE
+    Style: Solid
+GolemDeAcero:
+  Type: HUSK
+  Display: '&7&lGólem de Acero'
+  Health: 1800
+  Damage: 18
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0.0
+  - BLOCK_EXPLOSION 0.0
+  - PROJECTILE 0.2
+  - ENTITY_ATTACK 0.8
+  - FALL_DAMAGE 0.0
+  Modules:
+    ThreatTable: true
+  Skills:
+  - skill{s=SpawneoGolem} ~onSpawn
+  - skill{s=SkillsOgro} ~onTimer:400
+  - skill{s=Aura} ~onTimer:2
+  - effect:particles{p=reddust;color=#909090;amount=20;hS=0.6;vS=1} @self ~onTimer:1
+  - sendactionmessage{m="<mob.name><&co> &r&f<mob.hp>/<mob.mhp> &4<&heart>"} @PlayersInRadius{r=40} ~onDamaged
+  - effect:itemspray{item=IRON_INGOT;amount=10;velocity=0.5;yVelocity=2;d=10;r=1} @self ~onDamaged
+  - command{c="warning &c<target.name> &fha asesinado a <mob.name>"} @trigger ~onDeath
+  - command{c="ntokens give <target.name> 350"} @PlayersInRadius{r=10} ~onDeath 
+  - command{c="clv addExp 1800 <target.name>"} @PlayersInRadius{r=10} ~onDeath 
+  - effect:sound{s=entity.blaze.hurt;volume=1.0;pitch=1.3} @self ~onDamaged
+  Equipment:
+  - GolemH HEAD
+  - GolemC CHEST
+  - CHAINMAIL_LEGGINGS LEGS
+  - GolemB FEET
+  - NETHERITE_AXE HAND
+  - SHIELD OFFHAND
+  Drops:
+  - OCHRE_FROGLIGHT 1 0.5
+  - VERDANT_FROGLIGHT 1 0.5
+  - PEARLESCENT_FROGLIGHT 1 0.5
+  Options:
+    Silent: true
+    Despawn: false
+    AlwaysShowName: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    MovementSpeed: 0.25
+    MaxCombatDistance: 25
+    KnockbackResistance: 0.5
+    PreventOtherDrops: true
+  BossBar:
+    Enabled: true
+    Title: '&a&lRana Mutante'
+    Range: 50
+    Color: RED
+    Style: Solid
+Trasgo:
+  Type: VINDICATOR
+  Display: '&6Trasgo'
+  Damage: 10
+  DamageModifiers:
+    - ENTITY_EXPLOSION: 0.0
+    - BLOCK_EXPLOSION: 0.0
+    - PROJECTILE: 0.2
+    - ENTITY_ATTACK: 0.8
+    - FALL_DAMAGE: 0.0 
+Modules:
+    ThreatTable: true
+Skills:
+    - skill{s=SkillsOgro} ~onTimer:400
+Equipment:
+      - air: HEAD
+      - air: CHEST
+      - air: LEGS
+      - air: FEET
+Options:
+      Silent: false
+      Despawn: false
+      AlwaysShowName: true
+      PreventSunburn: true
+      PreventItemPickup: true
+      MovementSpeed: 0.2
+      PreventOtherDrops: true
