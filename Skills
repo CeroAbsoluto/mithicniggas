@@ -1,0 +1,668 @@
+Skills 
+
+SpawneoGolem:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 25) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoRana:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 0) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoPillager:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&c(Sub-Jefe) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoBrujo:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 100) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoViego:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 75) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoReyEs:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 0) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoOgro:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 25) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SpawneoReptil:
+  Skills:
+  - message{m="&r"} @Server
+  - message{m="<mob.name> &r&b(Nivel 50) &r&fha aparecido en &b<caster.l.x>, <caster.l.y>, <caster.l.z>"} @Server
+  - message{m="&r"} @Server
+  - effect:sound{s=block.respawn_anchor.charge;volume=0.7;pitch=2} @Server
+SmashAttack:
+  Cooldown: 8
+  Conditions:
+  - targetwithin 25
+  Skills:
+  - message{cooldown=30;m="<mob.name><&co> Hahahah! I will crush you, fool!"} @PlayersInRadius{r=40}
+  - teleport @target
+  - effect:sound{s=block.anvil.land;volume=1.0;pitch=0.5}
+  - delay 10
+  - damage{amount=5;ignorearmor=true} @PlayersInRadius{r=5}
+  - throw{velocity=10;velocityY=5} @PlayersInRadius{r=5}
+  - effect:explosion @Self
+SummonSkeletons:
+  Cooldown: 15
+  Skills:
+  - message{m="<mob.name><&co> Arise, my minions!"} @PlayersInRadius{r=40}
+  - delay 20
+  - summon{mob=SkeletalMinion;amount=2;noise=5} @Self
+  - delay 20
+  - summon{mob=SkeletalMinion;amount=2;noise=5} @Self
+  - delay 20
+  - summon{mob=SkeletalMinion;amount=2;noise=5} @Self
+AngrySludgePoison:
+  Cooldown: 10
+  Skills:
+  - potion{type=POISON;lvl=2;duration=100} @PlayersInRadius{r=15}
+  - effect:particles{p=happyVillager;amount=1000;hSpread=15;ySpread=1;speed=0;yOFfset=0.5}
+    @Self
+Despawneo:
+  Skills:
+  - potion{type=GLOWING;lvl=2;duration=100} @self
+  - stun{d=60;f=true:ai=false} @self
+  - effect:particles{particle=END_ROD;amount=10;hS=1;vS=1} @self
+  - effect:sound{s=entity.illusioner.mirror_move;volume=0.5;pitch=1.3} @self 
+  - delay 20
+  - effect:particles{particle=END_ROD;amount=1;hS=1;vS=1} @self
+  - delay 1
+  - effect:sound{s=entity.chicken.egg;volume=0.4;pitch=1.3} @self
+  - remove @self
+SkillsReyEsq:
+  Skills:
+  - skill{s=Estocadas}
+  - delay 100
+  - skill{s=Lluvia}
+  - delay 100
+  - skill{s=ExplOs}
+Estocadas:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aEstocadas"} @PlayersInRadius{r=30}
+  - teleport{spreadh=1;spreadv=0} @PlayersInRadius{r=20;sort=RANDOM}
+  - effect:sound{s=block.anvil.land;volume=1.0;pitch=2} @PlayersInRadius{r=20}
+  - effect:particles{particle=sweep_attack;amount=15;hS=2;vS=2;repeat=2;repeatInterval=2} @self
+  - effect:sound{s=entity.player.attack.sweep;volume=1.0;pitch=2;repeat=2;repeatInterval=2} @PlayersInRadius{r=20}
+  - delay 2
+  - damage{amount=18} @PIR{r=15}
+  - delay 2
+  - effect:particles{particle=sweep_attack;amount=15;hS=2;vS=2;repeat=2;repeatInterval=2} @self
+  - effect:particles{particle=reddust;amount=20;hS=1.5;vS=1.5} @target
+Lluvia:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aLluvia de Flechas"} @PlayersInRadius{r=30}
+  - arrowvolley{a=1;s=500;v=10;rd=200;repeat=5;repeatInterval=2} @PlayersInRadius{r=30} 
+ExplOs:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aExplosión Ósea"} @PlayersInRadius{r=30}
+  - effect:itemspray{item=bone;amount=5;velocity=5;d=100} @PlayersInRadius{r=30}
+  - effect:blockmask{m=bone_block;r=5;d=40;n=3} @PlayersInRadius{r=10}
+  - explosion{yield=2} @self
+  - throw{velocity=10;velocityY=15} @PlayersInRadius{r=10}
+  - delay 20
+  - pull{v=15} @PIR{r=30}
+AuraIn:
+  Skills:
+  - remove @MobsInRadius{r=25;t=ZombieReforzado,SegadorObscuro,EsqueletoReforzado,SlimeDeMiel,SlimePiedra,DemonioOcular,DevoradorCarnivoro,Bestia,BestiaDelHorror,CreeperReal,Raiz,Triton,ProtectorDeAlmas}
+  - effect:particlering{particle=WAX_ON;radius=25;points=50;amount=3;hS=1;vS=10} @self 
+  - damage{amount=1} @self
+AuraSon:
+  Skills:
+  - effect:particleline{p=END_ROD;syo=1;tyo=1;amount=1;fromOrigin=true} @MobsInRadius{r=25;t=ZombieReforzado,SegadorObscuro,EsqueletoReforzado,SlimeDeMiel,SlimePiedra,DemonioOcular,DevoradorCarnivoro,Bestia,BestiaDelHorror,CreeperReal,Raiz,Triton,ProtectorDeAlmas}
+  - effect:sound{s=block.lava.extinguish;volume=0.5;pitch=2} @self
+  Conditions:
+  - mobsInRadius{t=ZombieReforzado,SegadorObscuro,EsqueletoReforzado,SlimeDeMiel,SlimePiedra,DemonioOcular,DevoradorCarnivoro,Bestia,BestiaDelHorror,CreeperReal,Raiz,Triton,ProtectorDeAlmas;amount=1to1000;radius=25} true
+TritonSkill:
+  Conditions:
+  - onblock{m=WATER} true
+  Skills:
+  - leap{velocity=120} @target
+  - delay 2
+  - jump{velocity=0.3}
+  - effect:particles{particle=falling_water;amount=300;hS=1;vS=1} @self
+  - damage{amount=5} @PlayersInRadius{r=5}
+AuraO:
+  Skills:
+  - effect:itemspray{item=MOSS_BLOCK;amount=5;velocity=0.2;d=100} @MobsInRadius{r=10;t=SlimePiedra,Bestia}
+  - delay 2
+  - remove @MobsInRadius{r=10;t=Bestia,SlimePiedra}
+Sangrado:
+  Skills:
+  - message{m="<mob.name> &r&fte ha aplicado &4Sangrado"} @target
+  - delay 20
+  - damage{amount=5} @target
+  - effect:particles{particle=reddust;amount=30;hS=0.5;vS=0.5} @target
+  - delay 20
+  - damage{amount=5} @target
+  - effect:particles{particle=reddust;amount=30;hS=0.5;vS=0.5} @target
+  - delay 20
+  - damage{amount=5} @target
+  - effect:particles{particle=reddust;amount=30;hS=0.5;vS=0.5} @target
+SkillsOgro:
+  Skills:
+  - skill{s=SlamOgro}
+  - delay 100
+  - skill{s=Hone}
+  - delay 120
+  - skill{s=Embestida}
+SlamOgro:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aImpacto de Tierra"} @PlayersInRadius{r=30}
+  - effect:itemspray{item=DIRT;amount=50;velocity=5;d=100} @PlayersInRadius{r=30}
+  - effect:blockmask{m=PODZOL;r=5;d=40;n=3} @PlayersInRadius{r=10}
+  - potion{type=BLINDNESS;duration=10;level=1} @PlayersInRadius{r=30}
+  - explosion{yield=2} @self
+  - throw{velocity=15;velocityY=4} @PlayersInRadius{r=10}
+Hone:
+  Skills:
+  - effect:sound{s=block.piston.contract;volume=0.5;pitch=1.3} @self
+  - message{m="<mob.name> &r&fha usado &aProjectil de Tierra"} @PlayersInRadius{r=30}
+  - missile{ot=HoneTick;oh=HoneHit;v=4;i=1;hR=1;vR=1;in=0.75} @PlayersInRadius{r=30}
+HoneTick:
+  Skills:
+  - effect:particles{particle=block_crack;m=dirt;amount=20;hS=0.2;vS=0.2} @origin
+HoneHit:
+  Skills:
+  - effect:particles{particle=block_crack;m=dirt;amount=20;hS=2;vS=2}
+  - effect:sound{s=entity.generic.explode;v=1;p=0}
+  - damage{a=40;i=false}
+Embestida:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aEmbestida"} @PlayersInRadius{r=30}
+  - effect:particles{particle=block_crack;m=stone;amount=20;hS=2;vS=2;repeat=3;repeatInterval=2}
+  - effect:sound{s=entity.zoglin.attack;v=1;p=2;repeat=3;repeatInterval=2}
+  - teleport @PlayersInRadius{r=30;sort=RANDOM}
+  - delay 2
+  - effect:sound{s=entity.zoglin.angry;v=1;p=1}
+  - damage{a=8;i=true} @PlayersInRadius{r=5}
+TritonSkills:
+  Skills:
+  - leap{velocity=120} @target
+  - delay 2
+  - jump{velocity=0.3}
+  - effect:particles{particle=falling_water;amount=300;hS=1;vS=1} @self
+  - damage{amount=5} @PlayersInRadius{r=5}
+RaizSkill:
+  Skills:
+  - effect:particles{particle=HAPPY_VILLAGER;amount=10;hS=1;vS=1}
+  - damage{amount=0.5;ignorearmor=true} @PlayersInRadius{r=5}
+  - effect:sound{s=block.lily_pad.place;v=1;p=0}
+  - delay 4
+  - damage{amount=0.5;ignorearmor=true} @PlayersInRadius{r=5}
+  - effect:sound{s=block.lily_pad.place;v=1;p=0}
+  - delay 4
+  - damage{amount=0.5;ignorearmor=true} @PlayersInRadius{r=5}
+  - effect:sound{s=block.lily_pad.place;v=1;p=0}
+  - delay 4
+  - damage{amount=0.5;ignorearmor=true} @PlayersInRadius{r=5}
+  - effect:sound{s=block.lily_pad.place;v=1;p=0}
+  - delay 4
+  - damage{amount=0.5;ignorearmor=true} @PlayersInRadius{r=5}
+  - effect:sound{s=block.lily_pad.place;v=1;p=0}
+  - delay 4
+  - damage{amount=0.5;ignorearmor=true} @PlayersInRadius{r=5}
+  - effect:sound{s=block.lily_pad.place;v=1;p=0}
+AveFuego:
+  Skills:
+  - effect:particles{particle=flame;amount=30;hS=0.7;vS=0.7;repeat=14;repeatInterval=2} @self
+  - delay 10
+  - teleport @PlayersInRadius{r=25;sort=RANDOM}
+  - damage{amount=20} @PlayersInRadius{r=5}
+  - ignite{ticks=100} @PlayersInRadius{r=6}
+SangradoR:
+  Skills:
+  - message{m="<mob.name> &r&fte ha aplicado &4Sangrado Letal"} @target
+  - delay 20
+  - damage{amount=6} @target
+  - effect:particles{particle=reddust;amount=30;hS=0.5;vS=0.5} @target
+  - delay 20
+  - damage{amount=6} @target
+  - effect:particles{particle=reddust;amount=30;hS=0.5;vS=0.5} @target
+  - delay 20
+  - damage{amount=6} @target
+  - effect:particles{particle=reddust;amount=30;hS=0.5;vS=0.5} @target
+SkillsReptil:
+  Skills:
+  - skill{s=ReptilDesgarrar}
+  - delay 240
+  - skill{s=ReptilGarras}
+  - delay 240
+  - skill{s=Devorar}
+ReptilDesgarrar:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aDesgarrar"} @PlayersInRadius{r=30}
+  - teleport @PlayersInRadius{r=30;sort=RANDOM}
+  - damage{amount=20} @PlayersInRadius{r=30}
+  - effect:particles{particle=reddust;amount=100;hS=3;vS=3;repeat=3;repeatInterval=4} @PlayersInRadius{r=30}
+  - potion{type=BLINDNESS;duration=40;level=1} @PlayersInRadius{r=30} 
+  - effect:sound{s=entity.zombie.break_wooden_door;v=1;p=2} @PlayersInRadius{r=10}
+  - throw{velocity=40;velocityY=2} @PlayersInRadius{r=30}
+ReptilGarras:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aDagas Sangrientas"} @PlayersInRadius{r=30}
+  - effect:sound{s=entity.zombie.break_wooden_door;v=1;p=0} @PlayersInRadius{r=20}
+  - pull{velocity=10} @PlayersInRadius{r=20}
+  - delay 20
+  - effect:particles{particle=sweep_attack;amount=15;hS=2;vS=2;repeat=3;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.player.attack.sweep;volume=1.0;pitch=2;repeat=3;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particles{particle=reddust;amount=100;hS=3;vS=3;repeat=3;repeatInterval=10} @PlayersInRadius{r=20}
+  - skill{s=SangradoR}
+  - damage{amount=20} @PlayersInRadius{r=20}
+  - throw{velocity=10;velocityY=2} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.zombie.break_wooden_door;v=1;p=2;repeat=2;repeatInterval=10} @PlayersInRadius{r=20}
+AuraRep:
+  Skills:
+  - effect:itemspray{item=ROTTEN_FLESH;amount=5;velocity=0.2;d=100} @MobsInRadius{r=10;t=Triton,Raiz}
+  - delay 2
+  - remove @MobsInRadius{r=10;t=Triton,Raiz}
+Hidrofobia:
+  Conditions:
+  - onblock{m=WATER} true
+  Skills:
+  - teleportto{location=-82,22,11} @self
+Devorar:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aDevorar"} @PlayersInRadius{r=30}
+  - effect:sound{s=block.beacon.activate;v=1;p=2} @PlayersInRadius{r=30}
+  - damage{amount=20} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.zombie.break_wooden_door;v=1;p=0;repeat=2;repeatInterval=20} @PlayersInRadius{r=20}
+  - mountme @PlayersInRadius{r=20;sort=RANDOM}
+  - delay 20
+  - damage{amount=9} @PlayersInRadius{r=20}
+  - effect:particles{particle=reddust;amount=150;hS=1;vS=1} @PlayersInRadius{r=2}
+  - delay 20
+  - damage{amount=9} @PlayersInRadius{r=20}
+  - effect:particles{particle=reddust;amount=150;hS=1;vS=1} @PlayersInRadius{r=2}
+Eliminar:
+  Conditions:
+  - world{w=world1} true
+  Skills:
+  - remove @self
+SkillsViego:
+  Skills:
+  - skill{s=NieblaNegra}
+  - delay 200
+  - skill{s=AlmaV}
+  - delay 40
+  - skill{s=Fauces}
+  - delay 200
+  - skill{s=PosesionR}
+  - delay 20
+  - skill{s=ReptilGarras}
+  - delay 240
+  - skill{s=RompeCorazones}
+  - delay 240
+  - skill{s=NieblaNegra}
+  - delay 200
+  - skill{s=AlmaV}
+  - delay 40
+  - skill{s=Fauces}
+  - delay 200
+  - skill{s=PosesionOgro}
+  - delay 20
+  - skill{s=SlamOgro}
+  - delay 240
+  - skill{s=RompeCorazones}
+  - delay 240
+  - skill{s=NieblaNegra}
+  - delay 200
+  - skill{s=AlmaV}
+  - delay 40
+  - skill{s=Fauces}
+  - delay 200
+  - skill{s=PosesionReyE}
+  - delay 20
+  - skill{s=ExplOs}
+  - delay 240
+  - skill{s=RompeCorazones}
+AlmaV:
+  Skills:
+  - summon{mob=AlmaNiebla;amount=1;r=5} @Self
+Fauces:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aFauces Espectrales"} @PlayersInRadius{r=30}
+  - effect:sound{s=entity.illusioner.cast_spell;v=1;p=0.6} @PlayersInRadius{r=30}
+  - effect:particles{p=reddust;color=#3d6159;amount=10;hS=0.6;vS=1;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particles{p=reddust;color=#9cdbcd;amount=4;hS=0.6;vS=1;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particles{p=reddust;color=#48a38f;amount=10;hS=0.6;vS=1;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particles{p=SQUID_INK;amount=10;hS=0.6;vS=1;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+  - stun{d=40} @PlayersInRadius{r=20}
+  - damage{amount=30} @PlayersInRadius{r=20}
+NieblaNegra:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aNiebla Negra"} @PlayersInRadius{r=30}
+  - effect:sound{s=entity.illusioner.cast_spell;v=1;p=0.6} @PlayersInRadius{r=30}
+  - effect:particles{p=reddust;color=#3d6159;amount=80;hS=4;vS=4;repeat=20;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particles{p=reddust;color=#1a292b;amount=80;hS=4;vS=4;repeat=20;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particles{p=SQUID_INK;amount=50;hS=4;vS=4;repeat=20;repeatInterval=2} @PlayersInRadius{r=20}
+  - potion{type=SLOW;duration=120;level=1} @PlayersInRadius{r=20}
+  - potion{type=WITHER;duration=120;level=3} @PlayersInRadius{r=20}
+  - potion{type=BLINDNESS;duration=100;level=3} @PlayersInRadius{r=20}
+  - damage{amount=30} @PlayersInRadius{r=20}
+RompeCorazones:
+  Skills:
+  - jump{velocity=20}
+  - delay 20
+  - message{m="<mob.name> &r&fha usado &aRompecorazones"} @PlayersInRadius{r=30}
+  - teleport @target
+  - effect:sound{s=entity.illusioner.cast_spell;v=1;p=0.6} @PlayersInRadius{r=30}
+  - potion{type=WITHER;duration=120;level=3} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.zombie.break_wooden_door;v=1;p=2} @PlayersInRadius{r=20}
+  - throw{velocity=10;velocityY=2} @PlayersInRadius{r=20}
+  - damage{amount=60} @PlayersInRadius{r=20}
+  - potion{type=BLINDNESS;duration=100;level=3} @PlayersInRadius{r=20}
+  - effect:particlering{p=reddust;color=#1a292b;radius=2;points=32;amount=1;hS=1;vS=0;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particlering{p=reddust;color=#9cdbcd;radius=2;points=32;amount=1;hS=1;vS=0;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+  - effect:particlering{p=reddust;color=#3d6159;radius=2;points=32;amount=1;hS=1;vS=0;repeat=10;repeatInterval=2} @PlayersInRadius{r=20}
+PosesionReyE:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aPosesión"} @PlayersInRadius{r=30}
+  - disguise{d="ReyEsq"} @self
+  - delay 80
+  - disguise{d="ReyArruinado"} @self
+PosesionR:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aPosesión"} @PlayersInRadius{r=30}
+  - disguise{d="Reptil"} @self
+  - delay 80
+  - disguise{d="ReyArruinado"} @self
+PosesionOgro:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aPosesión"} @PlayersInRadius{r=30}
+  - disguise{d="Ogro"} @self
+  - delay 80
+  - disguise{d="ReyArruinado"} @self
+Dragon:
+  Skills:
+  - projectile{onTick=Dragon-Tick;onHit=Dragon-Hit;v=8;i=1;hR=1;vR=1;hnp=true}
+  - effect:sound{s=entity.blaze.shoot;volume=1.0;pitch=0} @self
+Dragon-Tick:
+  Skills:
+  - effect:particles{p=dragon_breath;amount=7;speed=0;hS=0.2;vS=0.2} @origin
+Dragon-Hit:
+  Skills:
+  - damage{a=10}
+  - potion{type=SLOW;duration=70;lvl=2}
+LaserFuego:
+  Skills:
+  - effect:particleline{p=reddust;color=#ad0000;syo=2;tyo=1.5;amount=1;fromOrigin=false;repeat=6;repeatInterval=10} @target
+  - effect:sound{s=block.lava.extinguish;volume=1.0;pitch=0;repeat=6;repeatInterval=10} @self
+  - damage{amount=2.5;repeat=6;repeatInterval=10} @PlayersInRadius{r=8}
+  - ignite{ticks=60} @PlayersInRadius{r=8}
+Horrorizar:
+  Skills:
+  - effect:sound{s=entity.wither.spawn;volume=1.0;pitch=2} @target
+  - effect:sound{s=entity.ghast.warn;volume=1.0;pitch=2} @target
+  - damage{amount=12} @target
+  - potion{type=BLINDNESS;duration=40;level=3} @target
+  - delay 2
+  - runaigoalselector{goal=runfromplayers} ~onAttack 1
+  - disguise{d="BestiaDelHorror"} @self #
+Miel:
+  Skills:
+  - projectile{onTick=Miel-Tick;onHit=Miel-Hit;v=13;i=1;hR=1;vR=1;hnp=true}
+  - effect:sound{s=entity.bee.sting;volume=1.0;pitch=0} @self
+Miel-Tick:
+  Skills:
+  - effect:particles{p=DRIPPING_HONEY;amount=7;speed=0;hS=0.2;vS=0.2} @origin
+Miel-Hit:
+  Skills:
+  - effect:sound{s=entity.slime.jump;volume=1.0;pitch=1} @self
+  - damage{a=10}
+  - potion{type=SLOW;duration=70;lvl=3}
+MielSalto:
+  Skills:
+  - jump{velocity=1} @self
+  - effect:sound{s=block.slime_block.fall;volume=1.0;pitch=1} @self
+RobaAlmas:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aRoba Almas"} @PlayersInRadius{r=30}
+  - command{c="ntokens remove <trigger.name> 1"} @trigger
+  - effect:sound{s=entity.vex.charge;volume=1.0;pitch=0} @self
+Jinetes:
+  Skills:
+  - mount{type=CaballoMuerto}
+CancelarBlaze:
+  Skills:
+  - CancelEvent
+SkillsBrujo:
+  Skills:
+  - skill{s=RayosBrujo}
+  - delay 260
+  - skill{s=Voodoo}
+  - delay 260
+  - skill{s=Ilusiones}
+  - delay 260
+  - skill{s=Supernovas}
+  - delay 260
+  - skill{s=Estrellas}
+RayosBrujo:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aRayo del Cosmos"} @PlayersInRadius{r=30}
+  - effect:particleline{p=reddust;color=#a38cb8;amount=20;zz=true;zzs=4;zzo;20;syo=0.5;tyo=0.5} @target
+  - effect:sound{s=block.respawn_anchor.deplete;volume=1.0;pitch=1} @PlayersInRadius{r=20} ~onDamaged
+  - stun{d=30;f=true;ai=false} @PlayersInRadius{r=20}
+  - delay 30
+  - lightning{d=130} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.zombie.attack_iron_door;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+Voodoo:
+  Skills:
+  - effect:particles{particle=END_ROD;amount=2;hS=1;vS=1;repeat=90;repeatInterval=1} @self
+  - message{m="<mob.name> &r&fha usado &aVoodoo"} @PlayersInRadius{r=30}
+  - teleportto{location=400,-49,1250} @self
+  - stun{d=100;f=true:ai=false} @self
+  - delay 10
+  - effect:sound{s=entity.illusioner.cast_spell;v=1;p=0.6} @PlayersInRadius{r=100}
+  - doppleganger @NearestPlayer{r=100}
+  - delay 20
+  - lightning{d=1} @self
+  - effect:particles{particle=reddust;amount=150;hS=1;vS=1} @self
+  - delay 20
+  - effect:sound{s=entity.zombie.break_wooden_door;v=1;p=0} @self
+  - damage{amount=1} @self
+  - effect:particles{particle=reddust;amount=150;hS=2;vS=2} @self
+  - delay 20
+  - explosion{yield=2;f=true} @self
+  - delay 20
+  - damage{amount=60} @PlayersInRadius{r=100}
+  - potion{type=BLINDNESS;duration=10;level=1} @PlayersInRadius{r=100}
+  - message{m="&fRecibiste todo el daño que <mob.name> &r&fse inflingió."} @PlayersInRadius{r=30}
+  - effect:sound{s=entity.vex.charge;volume=1.0;pitch=0} @PlayersInRadius{r=30}
+  - disguise{d="BrujoCosmico"} @self
+Ilusiones:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aIlusiones"} @PlayersInRadius{r=30}
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=392,-53,1250}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=393,-53,1246}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=396,-53,1243}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=400,-53,1242}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=404,-53,1243}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=407,-53,1246}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=408,-53,1250}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=407,-53,1254}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=404,-53,1257}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=400,-53,1258}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=396,-53,1257}
+  - delay 2
+  - summon{mob=AlmaBrujo;amount=1} @Location{c=393,-53,1254}
+  - delay 100
+  - remove @MobsInRadius{r=100;types=AlmaBrujo}
+Aura:
+  Skills:
+  - remove @MobsInRadius{r=40;t=ZombieReforzado,SegadorObscuro,EsqueletoReforzado,SlimeDeMiel,SlimePiedra,DemonioOcular,DevoradorCarnivoro,Bestia,BestiaDelHorror,CreeperReal,Raiz,Triton}
+MagiaNegra:
+  Skills:
+  - effect:particleline{p=reddust;color=#a38cb8;amount=5;zz=true;zzs=4;zzo;20;syo=0.5;tyo=0.5} @target
+  - stun{d=30;f=true:ai=false} @PlayersInRadius{r=20}
+  - damage{amount=30} @PlayersInRadius{r=20}
+  - potion{type=WITHER;duration=120;level=3} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.zombie.attack_iron_door;volume=0.4;pitch=0.0} @PlayersInRadius{r=20}
+Supernovas:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aSupernovas"} @PlayersInRadius{r=30}
+  - teleportto{location=394,-52,1256} @self
+  - delay 10
+  - forcepull{spread=0} @PIR{r=30}
+  - damage{amount=30} @PlayersInRadius{r=20}
+  - effect:particlesphere{particle=end_rod;amount=100;radius=5} @self
+  - effect:sound{s=entity.firework_rocket.large_blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.firework_rocket.blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - delay 10
+  - teleportto{location=409,-46,1240} @self
+  - delay 10
+  - forcepull{spread=0} @PIR{r=30}
+  - damage{amount=30} @PlayersInRadius{r=20}
+  - effect:particlesphere{particle=end_rod;amount=100;radius=5} @self
+  - effect:sound{s=entity.firework_rocket.large_blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.firework_rocket.blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - delay 10
+  - teleportto{location=400,-38,1252} @self
+  - delay 10
+  - forcepull{spread=0} @PIR{r=30}
+  - damage{amount=30} @PlayersInRadius{r=20}
+  - effect:particlesphere{particle=end_rod;amount=100;radius=5} @self
+  - effect:sound{s=entity.firework_rocket.large_blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.firework_rocket.blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - delay 10
+  - teleportto{location=411,-24,1254} @self
+  - delay 10
+  - forcepull{spread=0} @PIR{r=30}
+  - damage{amount=30} @PlayersInRadius{r=20}
+  - effect:particlesphere{particle=end_rod;amount=100;radius=5} @self
+  - effect:sound{s=entity.firework_rocket.large_blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.firework_rocket.blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+Estrellas:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aExplosión de Estrellas"} @PlayersInRadius{r=30}
+  - effect:particles{p=END_ROD;amount=3000;hS=20;vS=20} @self 
+  - effect:sound{s=zombie.break_wooden_door;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.firework_rocket.blast;volume=0.8;pitch=0.0} @PlayersInRadius{r=20}
+  - stun{d=30;f=true:ai=false} @PlayersInRadius{r=30}
+  - delay 20
+  - damage{amount=80} @PlayersInRadius{r=40}
+  - lightning{d=10} @PlayersInRadius{r=40}
+  - potion{type=BLINDNESS;duration=20;level=1} @PlayersInRadius{r=40}
+SkillsRana:
+  Skills:
+  - skill{s=Estampida}
+  - delay 200
+  - skill{s=Geyser}
+  - delay 200
+  - skill{s=SaltoAcua}
+Estampida:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aEstampida de Anfibios"} @PlayersInRadius{r=30}
+  - effect:sound{s=block.respawn_anchor.deplete;volume=0.4;pitch=2} @PlayersInRadius{r=20} #entity.player.splash.high_speed
+  - summon{mob=Anfibio;amount=8;noise=5} @Self
+Geyser:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aMega Géiser"} @PlayersInRadius{r=30}
+  - effect:geyser{type=WATER;height=20;speed=1} @PlayersInRadius{r=20}
+  - effect:sound{s=entity.player.splash.high_speed;volume=0.4;pitch=2} @PlayersInRadius{r=20} 
+  - throw{velocity=15;velocityY=35} @PlayersInRadius{r=20}
+  - damage{amount=6;ignorearmor=true} @PlayersInRadius{r=20}
+SaltoAcua:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aSaltos Acuáticos"} @PlayersInRadius{r=30}
+  - jump{velocity=2} @self
+  - effect:particles{particle=FALLING_WATER;amount=20;hS=1;vS=1} @self
+  - delay 20
+  - effect:sound{s=entity.player.splash;volume=1;pitch=2} @PlayersInRadius{r=20}
+  - teleport{spreadh=1;spreadv=0} @PlayersInRadius{r=20;sort=RANDOM}
+  - throw{velocity=5;velocityY=3} @PlayersInRadius{r=5}
+  - damage{amount=12;ignorearmor=false} @PlayersInRadius{r=20}
+  - effect:particles{particle=FALLING_WATER;amount=20;hS=1;vS=1} @self
+  - delay 10
+  - jump{velocity=2} @self
+  - effect:particles{particle=FALLING_WATER;amount=20;hS=1;vS=1} @self
+  - delay 20
+  - effect:sound{s=entity.player.splash;volume=1;pitch=2} @PlayersInRadius{r=20}
+  - teleport{spreadh=1;spreadv=0} @PlayersInRadius{r=20;sort=RANDOM}
+  - throw{velocity=5;velocityY=3} @PlayersInRadius{r=5}
+  - damage{amount=12;ignorearmor=false} @PlayersInRadius{r=20}
+  - effect:particles{particle=FALLING_WATER;amount=20;hS=1;vS=1} @self
+  - delay 10
+  - jump{velocity=2} @self
+  - effect:particles{particle=FALLING_WATER;amount=20;hS=1;vS=1} @self
+  - delay 20
+  - effect:sound{s=entity.player.splash;volume=1;pitch=2} @PlayersInRadius{r=20}
+  - teleport{spreadh=1;spreadv=0} @PlayersInRadius{r=20;sort=RANDOM}
+  - throw{velocity=5;velocityY=3} @PlayersInRadius{r=5}
+  - damage{amount=12;ignorearmor=false} @PlayersInRadius{r=20}
+  - effect:particles{particle=FALLING_WATER;amount=20;hS=1;vS=1} @self
+  - delay 10
+SkillsGolem:
+  Skills:
+  - skill{s=PrisionHierro}
+  - delay 200
+  - skill{s=CampoMagnetico}
+PrisionHierro:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aPararrayos"} @PlayersInRadius{r=30}
+  - prison{material=IRON_BARS;duration=80;breakable=false} @PlayersInRadius{r=30}
+  - stun{d=40;f=true} @PlayersInRadius{r=30}
+  - effect:sound{s=entity.zombie.attack_iron_door;volume=0.7;pitch=0} @PlayersInRadius{r=30} #entity.player.splash.high_speed
+  - delay 20
+  - effect:sound{s=entity.zombie.attack_iron_door;volume=0.7;pitch=2;repeat=2;repeatInterval=10} @PlayersInRadius{r=30}
+  - effect:itemspray{item=IRON_INGOT;amount=10;velocity=0.5;yVelocity=2;d=10;r=1} @PlayersInRadius{r=30}
+  - recoil{r=4;pitch=10to-50} @PlayersInRadius{r=30}
+  - lightning{d=12} @PlayersInRadius{r=30}
+  - delay 10
+  - effect:itemspray{item=IRON_INGOT;amount=10;velocity=0.5;yVelocity=2;d=10;r=1} @PlayersInRadius{r=30}
+  - recoil{r=4;pitch=-10to10} @PlayersInRadius{r=30}
+  - delay 10
+  - effect:itemspray{item=IRON_INGOT;amount=10;velocity=0.5;yVelocity=2;d=10;r=1} @PlayersInRadius{r=30}
+  - recoil{r=4;pitch=10to-50} @PlayersInRadius{r=30}
+  - lightning{d=12} @PlayersInRadius{r=30}
+CampoMagnetico:
+  Skills:
+  - message{m="<mob.name> &r&fha usado &aCampo Magnético"} @PlayersInRadius{r=80}
+  - effect:bloodyScreen{d=80} @PIR{r=80}
+  - pull{v=30} @PIR{r=80}
+  - effect:sound{s=entity.zombie_villager.converted;volume=0.4;pitch=2} @PlayersInRadius{r=80}
+  - effect:blockmask{m=iron_block;r=3;d=20;repeat=20;repeatInterval=1} @PIR{r=80}
+  - delay 20
+  - effect:particles{particle=block_crack;m=STONE;amount=20;hS=0.1;vS=0.1} @PIR{r=80}
+  - explosion{yield=1.5} @PIR{r=80}
+  - delay 20
+  - pull{v=30} @PIR{r=80}
+  - effect:sound{s=entity.zombie_villager.converted;volume=0.4;pitch=2} @PlayersInRadius{r=80}
+  - effect:blockmask{m=iron_block;r=3;d=20;repeat=20;repeatInterval=1} @PIR{r=80}
+  - delay 20
+  - effect:particles{particle=block_crack;m=STONE;amount=20;hS=0.1;vS=0.1} @PIR{r=80}
+  - explosion{yield=1.5} @PIR{r=80}
+  - delay 20
+  - pull{v=30} @PIR{r=80}
+  - effect:sound{s=entity.zombie_villager.converted;volume=0.4;pitch=2} @PlayersInRadius{r=80}
+  - effect:blockmask{m=iron_block;r=3;d=20;repeat=20;repeatInterval=1} @PIR{r=80}
+  - delay 20
+  - effect:particles{particle=block_crack;m=STONE;amount=20;hS=0.1;vS=0.1} @PIR{r=80}
+  - explosion{yield=1.5} @PIR{r=80}
